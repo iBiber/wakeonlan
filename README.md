@@ -15,6 +15,9 @@ Just enter into a console:
 You can start the service after you build the project like this (from project root):
 ``` java -jar ./target/service-1.0.0-SNAPSHOT-runner.jar ```
 
+If you want to listen the service on another port you can define it like:
+``` java -jar -Dquarkus.http.port=8090 ./target/service-1.0.0-SNAPSHOT-runner.jar ```
+
 # Develop the service
 With this command you can start the service in a development mode:
 ``` mvn quarkus:dev ```
