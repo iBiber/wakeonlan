@@ -5,12 +5,13 @@ import java.io.IOException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Path("/wakeonlan/{broadcastIp}/{macAddress}")
+@Path("/wakeonlan")
 public class WakeOnLanRestController {
 	private static final Logger logger = LoggerFactory.getLogger(WakeOnLanRestController.class);
 
@@ -19,8 +20,8 @@ public class WakeOnLanRestController {
 	private static final WakeOnLanService wolService = new WakeOnLanService();
 
 	@GET
-	public Response onRequestToSendWolPacket(@PathParam("broadcastIp") String broadcastIp,
-			@PathParam("macAddress") String macAddress) {
+	public Response onRequestToSendWolPacket(@QueryParam("broadcastIp") String broadcastIp,
+			@QueryParam("macAddress") String macAddress) {
 		logger.info("Request to send WOL message; broadCastIp={}, MAC address={}", broadcastIp, macAddress);
 
 		try {
